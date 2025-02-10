@@ -1,0 +1,10 @@
+# ninja log v5
+25	973	7609202991324765	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	253d980f8dd2afd9
+0	981	7609202991405441	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2024a29f4bd9e8c8
+14	992	7609202991511286	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	7ebfb351e6c96826
+41	999	7609202991581687	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c70feef0e4c2f84a
+34	1064	7609202992240465	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	3ea47d689ee24ef7
+5	1104	7609202992647023	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	6f4a3a3c79512d32
+20	1218	7609202993771510	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	28396ed8fcf9912
+10	1322	7609202994791279	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	7eae4e255387b9ad
+1322	1429	7609202995873414	D:/CreativeStuff/Game Development/Limeless/CarTest/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/573h1o3h/obj/arm64-v8a/libgame.so	f810d2a482cb08b1
