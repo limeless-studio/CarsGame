@@ -3,6 +3,7 @@ using System.Collections;
 using Snowy.Utils;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Vehicle;
 using Random = UnityEngine.Random;
@@ -105,6 +106,16 @@ namespace Game
             // show game over screen
             gameOverCanvasGroup.alpha = 1;
             scoreText.text = coinsCollected.ToString();
+        }
+
+        public void PlayAgain()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
+        public void Quit()
+        {
+            Application.Quit();
         }
     }
 }
