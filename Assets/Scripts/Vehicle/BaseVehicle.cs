@@ -218,11 +218,11 @@ namespace Vehicle
             {
                 float tiltAngle = Mathf.Lerp(0, -5, carVelocity.z / maxSpeed);
                 Quaternion bodyRotation = Quaternion.Euler(tiltAngle, bodyMesh.localRotation.eulerAngles.y, bodyTilt * horizontalInput);
-                bodyMesh.localRotation = Quaternion.Slerp(bodyMesh.localRotation, bodyRotation, 0.4f * Time.deltaTime / Time.fixedDeltaTime);
+                bodyMesh.localRotation = Quaternion.Slerp(bodyMesh.localRotation, bodyRotation, 0.1f * Time.deltaTime / Time.fixedDeltaTime);
             }
             else
             {
-                bodyMesh.localRotation = Quaternion.Slerp(bodyMesh.localRotation, Quaternion.identity, 0.4f * Time.deltaTime / Time.fixedDeltaTime);
+                bodyMesh.localRotation = Quaternion.Slerp(bodyMesh.localRotation, Quaternion.identity, 0.1f * Time.deltaTime / Time.fixedDeltaTime);
             }
 
             if (kartLike)
@@ -287,7 +287,7 @@ namespace Vehicle
 
         private void OnCollisionEnter(Collision other)
         {
-            Debug.Log("Collision with " + other.gameObject.name);
+            
         }
 
         # region Setters

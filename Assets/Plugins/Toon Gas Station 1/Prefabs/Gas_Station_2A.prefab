@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4249946141836356}
   - component: {fileID: 33012259211122464}
   - component: {fileID: 23970489978351834}
-  m_Layer: 0
+  - component: {fileID: 2489516190471401140}
+  m_Layer: 6
   m_Name: Gas_Station_2A_D_Addon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,6 +87,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2489516190471401140
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075936744439390}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.862135, y: 0.11807822, z: 34}
+  m_Center: {x: 0.15401077, y: 0.05903911, z: 2.6385144e-14}
 --- !u!1 &1554726804301686
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +120,7 @@ GameObject:
   - component: {fileID: 33606086321158908}
   - component: {fileID: 23329822755069376}
   - component: {fileID: 64424783518493674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gas_Station_2A_Rotating_Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,11 +228,11 @@ GameObject:
   - component: {fileID: 4307906653718738}
   - component: {fileID: 33950447334180920}
   - component: {fileID: 23459143073006274}
-  - component: {fileID: 64516855415941814}
   - component: {fileID: 95589478091764520}
-  m_Layer: 0
+  - component: {fileID: 4430763778245688234}
+  m_Layer: 6
   m_Name: Gas_Station_2A
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,8 +247,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4249946141836356}
   - {fileID: 4104620907989926}
@@ -286,28 +308,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64516855415941814
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974808383920932}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 5dcdc2ca5ac709749ab0ddd5b8df0f84, type: 3}
 --- !u!95 &95589478091764520
 Animator:
   serializedVersion: 7
@@ -330,6 +330,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!64 &4430763778245688234
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974808383920932}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
 --- !u!1 &1976285795842848
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +363,7 @@ GameObject:
   - component: {fileID: 4728470682576188}
   - component: {fileID: 33642240738419710}
   - component: {fileID: 23571379028252454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gas_Station_2A_Window_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}

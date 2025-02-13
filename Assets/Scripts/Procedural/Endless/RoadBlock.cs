@@ -1,46 +1,42 @@
-﻿using System;
-using Game;
+﻿using Game.Cars;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class RoadBlock : MonoBehaviour
+    public class RoadBlock : Block
     {
-        [Title("References")]
-        [SerializeField] private Transform connectionPoint;
+        [SerializeField, ReorderableList] private Transform[] spawnpoints;
+        [Title("Settings")]
         [SerializeField] private float obstacleSpawnChance = 0.5f;
         [SerializeField] private float coinSpawnChance = 0.5f;
-        [SerializeField, ReorderableList] private Transform[] spawnpoints;
-        
-        public Transform ConnectionPoint => connectionPoint;
 
-        public void Init()
+        public override void Init()
         {
             SpawnItems();
         }
         
-
         private void SpawnItems()
         {
+            if (CarGameManager.Instance == null)
+            {
+                Debug.LogError("CarGameManager is missing in the scene!");
+                return;
+            }
+            
             foreach (Transform spawnpoint in spawnpoints)
             {
                 // Select either coin or obstacle, or nothing
                 float randomValue = UnityEngine.Random.value;
                 if (randomValue < coinSpawnChance)
                 {
-                    GameManager.Instance.SpawnCoin(spawnpoint);
+                    CarGameManager.Instance.SpawnCoin(spawnpoint);
                 }
                 else if (randomValue < obstacleSpawnChance)
                 {
                     // Spawn obstacle
-                    GameManager.Instance.SpawnObstacle(spawnpoint);
+                    CarGameManager.Instance.SpawnObstacle(spawnpoint);
                 }
             }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            RoadManager.Instance.OnEnterRoadBlock(this, other);
         }
     }
 }

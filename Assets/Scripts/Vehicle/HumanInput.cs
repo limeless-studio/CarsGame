@@ -1,11 +1,12 @@
 ﻿using System;
 using DefaultNamespace.UI;
+using Game;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Vehicle
 {
-    public class HumanInput : MonoBehaviour
+    public class HumanInput : Player
     {
         [SerializeField] BaseVehicle vehicle;
         [SerializeField] private HoldableButton leftButton;
@@ -33,12 +34,12 @@ namespace Vehicle
             }
         }
         
-        public void StartDriving()
+        public override void StartGame()
         {
             started = true;
         }
 
-        public void StopDriving()
+        public override void EndGame()
         {
             started = false;
             vehicle.SetDriveInput(0);

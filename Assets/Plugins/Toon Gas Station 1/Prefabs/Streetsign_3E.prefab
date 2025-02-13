@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 33082922943377002}
   - component: {fileID: 23668042860164104}
   - component: {fileID: 64147248756503912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Streetsign_3E
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
