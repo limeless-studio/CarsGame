@@ -8,13 +8,20 @@ namespace Game
     {
         [Title("References")]
         [SerializeField] private Rigidbody rb;
-        [SerializeField] private Transform rightClaw;
-        [SerializeField] private Transform leftClaw;
+        [SerializeField] private Transform firstClaw;
+        [SerializeField] private Transform secondClaw;
+        [SerializeField] private Transform thirdClaw;
+        
+        [SerializeField] private Vector3 firstClawClosedRot;
+        [SerializeField] private Vector3 secondClawClosedRot;
+        [SerializeField] private Vector3 thirdClawClosedRot;
+        
+        [SerializeField] private Vector3 firstClawOpenRot;
+        [SerializeField] private Vector3 secondClawOpenRot;
+        [SerializeField] private Vector3 thirdClawOpenRot;
         
         [Title("Settings")]
         [SerializeField] private float speed = 1f;
-        [SerializeField] private float clawCloseAngle = 0f;
-        [SerializeField] private float clawOpenAngle = 90f;
 
         void Start()
         {
@@ -24,12 +31,18 @@ namespace Game
             // Hide cursor
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            
+            // Open claw
+            OpenClaw();
         }
         
         void Update()
         {
             if (!GameManager.Instance.IsGameRunning) return;
             
+            
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
             Move();
             
             if (Input.GetMouseButtonDown(0))
@@ -44,22 +57,22 @@ namespace Game
             float moveX = Input.GetAxis("Mouse X");
             float moveY = Input.GetAxis("Mouse Y");
             
-            rb.linearVelocity = Vector3.zero;
-            
             // Move claw accourding to mouse movement, accounting to the collisions
             rb.MovePosition(rb.position + new Vector3(moveX, moveY, 0) * (speed * Time.deltaTime));
         }
         
         void CloseClaw()
         {
-            rightClaw.DOLocalRotate(new Vector3(0, 0, clawCloseAngle), 0.2f);
-            leftClaw.DOLocalRotate(new Vector3(0, 0, -clawCloseAngle), 0.2f);
+            firstClaw.DOLocalRotate(firstClawClosedRot, 0.2f);
+            secondClaw.DOLocalRotate(secondClawClosedRot, 0.2f);
+            thirdClaw.DOLocalRotate(thirdClawClosedRot, 0.2f);
         }
         
         void OpenClaw()
         {
-            rightClaw.DOLocalRotate(new Vector3(0, 0, clawOpenAngle), 0.2f);
-            leftClaw.DOLocalRotate(new Vector3(0, 0, -clawOpenAngle), 0.2f);
+            firstClaw.DOLocalRotate(firstClawOpenRot, 0.2f);
+            secondClaw.DOLocalRotate(secondClawOpenRot, 0.2f);
+            thirdClaw.DOLocalRotate(thirdClawOpenRot, 0.2f);
         }
 
         public override void StartGame()

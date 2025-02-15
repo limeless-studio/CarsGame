@@ -11,7 +11,7 @@ namespace Snowy.Utils
         [Title("Settings")]
         [SerializeField] private float spawnInterval = 1f;
         [SerializeField] private float spawnChance = 0.5f;
-        [SerializeField, MinMaxSlider(0, 100)] private Vector2Int spawnCount = new Vector2Int(1, 3);
+        [SerializeField, MinMaxSlider(0, 500)] private Vector2Int spawnCount = new Vector2Int(1, 3);
         
         [Title("Debug")]
         [SerializeField, Disable] private int maxSpawnCount = 0;
