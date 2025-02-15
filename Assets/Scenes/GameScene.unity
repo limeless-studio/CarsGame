@@ -494,14 +494,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1408283695}
+  gameID: 0
   countdownDuration: 3
-  countdownText: {fileID: 1867599510}
-  controls: {fileID: 1336784620}
-  fadeCanvasGroup: {fileID: 1204996376}
-  gameOverCanvasGroup: {fileID: 2135628751}
-  scoreText: {fileID: 1532196856}
-  coinsCollectedText: {fileID: 1023811694}
-  coinsCollected: 0
+  OnCountdownEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCoinCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnObstacleHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameOverEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  score: 0
+  isDead: 0
+  isGameRunning: 0
   coinPrefab: {fileID: 161959848138071040, guid: 3a983bc367db83a498345111f0e4c11f, type: 3}
   obstaclesPrefabs:
   - {fileID: 100000, guid: 9a0f959c66bfd7946914f5b3ed566165, type: 3}
@@ -519,7 +531,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks:
   - {fileID: 342979892978265600, guid: 10f92a164d1f652449c19e494ae6bf71, type: 3}
-  - {fileID: 8427652012781017804, guid: 04dea72ae4e7fcd4085776df5582c4d7, type: 3}
   container: {fileID: 868202577}
   playerTag: Player
   maxBlocksAtOnce: 10
@@ -623,19 +634,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 293376694819996609, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8800004
+      value: 5.3273735
       objectReference: {fileID: 0}
     - target: {fileID: 293376694819996609, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.79
+      value: -13.408227
       objectReference: {fileID: 0}
     - target: {fileID: 293376694819996609, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99628264
+      value: 0.99991035
       objectReference: {fileID: 0}
     - target: {fileID: 293376694819996609, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08614495
+      value: 0.013389238
       objectReference: {fileID: 0}
     - target: {fileID: 607647466551657841, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -647,11 +658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1247797794906297074, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: FollowOffset.y
-      value: 3.88
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 1247797794906297074, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: FollowOffset.z
-      value: -10.79
+      value: -8.96
       objectReference: {fileID: 0}
     - target: {fileID: 1353312749176291345, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalPosition.y
@@ -683,11 +694,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2661398491751280038, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: LookAtOffset.y
-      value: 2
+      value: 3.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975335839916647756, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6682467
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975335839916647756, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6682467
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975335839916647756, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6682467
       objectReference: {fileID: 0}
     - target: {fileID: 2975335839916647756, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 2975335839916647756, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalPosition.y
@@ -695,7 +718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2975335839916647756, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -61.2
       objectReference: {fileID: 0}
     - target: {fileID: 2975335839916647756, guid: 0e6d13804e7769147b4e0ff7ed1f6381, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1862,8 +1885,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096229379}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08614495, y: 0, z: 0, w: 0.99628264}
-  m_LocalPosition: {x: 0, y: 7.3100004, z: -10.79}
+  m_LocalRotation: {x: 0.013389238, y: 0, z: 0, w: 0.99991035}
+  m_LocalPosition: {x: 0.79, y: 6.99, z: -70.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2185,17 +2208,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 091d0b5828664c228468f5f69d799077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1532196856 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6142518339651495487, guid: 0d8b9493ff4401d43bc6ea9f344235d5, type: 3}
-  m_PrefabInstance: {fileID: 1083479166}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1538301810
@@ -3154,9 +3166,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 868202577}
     m_Modifications:
-    - target: {fileID: 2023039778229717081, guid: 10f92a164d1f652449c19e494ae6bf71, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.23
+    - target: {fileID: 3136063517520823567, guid: 10f92a164d1f652449c19e494ae6bf71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 69.959
       objectReference: {fileID: 0}
     - target: {fileID: 5484624788789894843, guid: 10f92a164d1f652449c19e494ae6bf71, type: 3}
       propertyPath: m_Name
