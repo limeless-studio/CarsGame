@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Game
@@ -75,6 +76,16 @@ namespace Game
             
             rb.isKinematic = true;
             rb.useGravity = false;
+        }
+        
+        protected override void OnCollisionEnter(Collision other)
+        {
+            // IGNORE
+        }
+        
+        protected override void OnTriggerEnter(Collider other)
+        {
+            // IGNORE
         }
     }
 }

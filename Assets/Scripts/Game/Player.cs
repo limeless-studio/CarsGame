@@ -14,7 +14,7 @@ namespace Game
             
         }
 
-        private void OnCollisionEnter(Collision other)
+        protected virtual void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Coin"))
             {
@@ -27,7 +27,7 @@ namespace Game
             }
         }
         
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Coin"))
             {
