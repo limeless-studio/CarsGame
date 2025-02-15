@@ -16,8 +16,8 @@ TagManager:
   - Ground
   - CarBody
   - SphereRB
-  - 
-  - 
+  - BlockPlayer
+  - Player
   - 
   - 
   - 

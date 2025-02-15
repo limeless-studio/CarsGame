@@ -498,6 +498,8 @@ MonoBehaviour:
   newHighscoreTag: {fileID: 1799147198}
   finalScoreText: {fileID: 5651476300213832923}
   highScoreText: {fileID: 1171393443}
+  hasTimer: 0
+  timerText: {fileID: 0}
 --- !u!1 &131205089
 GameObject:
   m_ObjectHideFlags: 0

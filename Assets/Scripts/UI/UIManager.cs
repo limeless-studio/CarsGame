@@ -17,6 +17,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text finalScoreText;
     [EndGroup]
     [SerializeField] private Text highScoreText;
+    
+    [BeginGroup("Timer")]
+    [SerializeField] private bool hasTimer;
+    [EndGroup]
+    [SerializeField, ShowIf(nameof(hasTimer), true)] private Text timerText;
 
     public enum FadeDirection { FadeOut, FadeIn }
 
@@ -65,6 +70,11 @@ public class UIManager : MonoBehaviour
             StartCoroutine(FadeCanvas(deathCanvas, FadeDirection.FadeIn, .5f));
         }
     }
+    
+    public void UpdateTimer(int time)
+    {
+        timerText.text = time.ToString("D2");
+    }
 
     IEnumerator EmptyText(Text text, float duration, bool state = true)
     {
@@ -102,7 +112,6 @@ public class UIManager : MonoBehaviour
         }
 
         // force the alpha to the end alpha before finishing � this is here to mitigate any rounding errors, e.g. leaving the alpha at 0.01 instead of 0
-        if (direction == FadeDirection.FadeIn) canvasGroup.alpha = 1f;
-        else canvasGroup.alpha = 0f;
+        canvasGroup.alpha = direction == FadeDirection.FadeIn ? 1f : 0f;
     }
 }

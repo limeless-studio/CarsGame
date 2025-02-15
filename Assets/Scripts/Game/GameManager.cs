@@ -10,9 +10,9 @@ namespace Game
     {
         [Title("References")]
         [SerializeField] protected Player player;
-        
+
         [Title("Settings")]
-        [SerializeField] protected int gameID = 0;
+        [SerializeField] protected int gameID;
         [SerializeField] protected int countdownDuration = 3;
 
         [Title("Events")]
@@ -21,12 +21,11 @@ namespace Game
         public UnityEvent OnObstacleHit;
         public UnityEvent OnGameStartEvent;
         public UnityEvent OnGameOverEvent;
-
         
-        [Title("Debug")]
-        [SerializeField, Disable] protected int score = 0;
-        [SerializeField, Disable] protected bool isDead = false;
-        [SerializeField, Disable] protected bool isGameRunning = false;
+        [Title("Debug", Order = 999)]
+        [SerializeField, Disable] protected int score;
+        [SerializeField, Disable] protected bool isDead;
+        [SerializeField, Disable] protected bool isGameRunning;
 
         public int GameID => gameID;
         public int Score => score;
@@ -83,8 +82,7 @@ namespace Game
             isGameRunning = false;
             OnGameOverEvent?.Invoke();
         }
-
-
+        
         public void PlayAgain()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
