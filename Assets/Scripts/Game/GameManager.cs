@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Globalization;
-using Game.Cars;
+﻿using System.Collections;
 using Snowy.Utils;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Vehicle;
-using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -32,19 +25,16 @@ namespace Game
         
         [Title("Debug")]
         [SerializeField, Disable] protected int score = 0;
+        [SerializeField, Disable] protected bool isDead = false;
+        [SerializeField, Disable] protected bool isGameRunning = false;
 
         public int GameID => gameID;
         public int Score => score;
-        
+        public bool IsGameRunning => isGameRunning;
+
         protected void Start()
         {
             StartCoroutine(StartGame());
-        }
-        
-        public void GameOver()
-        {
-            player.EndGame();
-            OnGameOverEvent?.Invoke();
         }
         
         protected IEnumerator StartGame()
@@ -64,21 +54,36 @@ namespace Game
         
         public virtual void CollectCoin(GameObject coin)
         {
+            if (isDead) return;
+            
             score++;
             OnCoinCollected?.Invoke(score);
         }
         
         public virtual void HitObstacle(GameObject obstacle)
         {
+            if (isDead) return;
+            
             OnObstacleHit?.Invoke();
             GameOver();
         }
         
         protected virtual void OnGameStart()
         {
+            isGameRunning = true;
             player.StartGame();
             OnGameStartEvent?.Invoke();
         }
+        
+        protected virtual void GameOver()
+        {
+            if (isDead) return;
+            player.EndGame();
+            isDead = true;
+            isGameRunning = false;
+            OnGameOverEvent?.Invoke();
+        }
+
 
         public void PlayAgain()
         {

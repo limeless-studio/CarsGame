@@ -22,7 +22,12 @@ namespace Game.Bird
         public void Flap()
         {
             if (rb.isKinematic) return;
-            animator.CrossFade("Flap", .2f);
+            animator.Play("Flap");
+            Invoke(nameof(FlapForce), .1f);
+        }
+
+        private void FlapForce()
+        {
             rb.linearVelocity = new Vector3(0, flapForce, 0);
         }
 
@@ -38,8 +43,7 @@ namespace Game.Bird
         public override void EndGame()
         {
             base.EndGame();
-            rb.isKinematic = true;
-            rb.useGravity = false;
+            animator.CrossFade("Death", .1f);
         }
     }
 }

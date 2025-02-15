@@ -53,24 +53,16 @@ public class UIManager : MonoBehaviour
             bool isNewHighScore = ScoreManager.CheckAndSaveHighScore(GameManager.Instance.GameID, score);
             if (isNewHighScore)
             {
-                if (newHighscoreTag != null)
-                {
-                    newHighscoreTag.SetActive(true);
-                }
-
+                newHighscoreTag?.SetActive(true);
                 highScoreText.text = score.ToString();
             }
             else
             {
-                if (newHighscoreTag != null)
-                {
-                    newHighscoreTag.SetActive(false);
-                }
-
+                newHighscoreTag?.SetActive(false);
                 highScoreText.text = ScoreManager.GetHighScore(GameManager.Instance.GameID).ToString();
             }
 
-            FadeCanvas(deathCanvas, FadeDirection.FadeIn, .5f);
+            StartCoroutine(FadeCanvas(deathCanvas, FadeDirection.FadeIn, .5f));
         }
     }
 
@@ -88,7 +80,7 @@ public class UIManager : MonoBehaviour
         var endTime = Time.time + duration;
         var elapsedTime = 0f;
 
-        // set the canvas to the start alpha – this ensures that the canvas is ‘reset’ if you fade it multiple times
+        // set the canvas to the start alpha ï¿½ this ensures that the canvas is ï¿½resetï¿½ if you fade it multiple times
         if (direction == FadeDirection.FadeIn) canvasGroup.alpha = 0f;
         else canvasGroup.alpha = 1f;
 
@@ -109,7 +101,7 @@ public class UIManager : MonoBehaviour
             yield return new WaitForEndOfFrame(); // wait for the next frame before continuing the loop
         }
 
-        // force the alpha to the end alpha before finishing – this is here to mitigate any rounding errors, e.g. leaving the alpha at 0.01 instead of 0
+        // force the alpha to the end alpha before finishing ï¿½ this is here to mitigate any rounding errors, e.g. leaving the alpha at 0.01 instead of 0
         if (direction == FadeDirection.FadeIn) canvasGroup.alpha = 1f;
         else canvasGroup.alpha = 0f;
     }
