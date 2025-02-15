@@ -543,7 +543,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks:
   - {fileID: 342979892978265600, guid: 10f92a164d1f652449c19e494ae6bf71, type: 3}
-  - {fileID: 8427652012781017804, guid: 04dea72ae4e7fcd4085776df5582c4d7, type: 3}
   container: {fileID: 868202577}
   playerTag: Player
   maxBlocksAtOnce: 10
@@ -569,6 +568,8 @@ MonoBehaviour:
   newHighscoreTag: {fileID: 1647630782}
   finalScoreText: {fileID: 21387313}
   highScoreText: {fileID: 2038135617}
+  hasTimer: 0
+  timerText: {fileID: 0}
 --- !u!1 &549744911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2941,7 @@ Transform:
   m_GameObject: {fileID: 9033082542517007458}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08614495, y: 0, z: 0, w: 0.99628264}
-  m_LocalPosition: {x: 0, y: 3.8800004, z: -10.79}
+  m_LocalPosition: {x: 0, y: 6.270423, z: -17.437592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18792,7 +18793,7 @@ MonoBehaviour:
   drivableSurface:
     serializedVersion: 2
     m_Bits: 64
-  maxSpeed: 100
+  maxSpeed: 80
   accelaration: 15
   turn: 4
   downforce: 5
@@ -24097,7 +24098,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.43, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.61877805, y: 0.61877805, z: 0.61877805}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6173421806274607940}
