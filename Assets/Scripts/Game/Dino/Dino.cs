@@ -9,6 +9,7 @@ namespace Game.Dino
         [Title("References")]
         [SerializeField] private Rigidbody rb;
         [SerializeField] private TriggerBox groundTrigger;
+        [SerializeField] private Animator animator;
         
         [Title("Settings")]
         [SerializeField] private float jumpForce = 1f;
@@ -20,6 +21,11 @@ namespace Game.Dino
             
             if (!groundTrigger.IsTriggered)
                 rb.linearVelocity += new Vector3(0, -downForce, 0);
+        }
+
+        private void Update()
+        {
+            Animating();
         }
 
         public void AttemptJump()
@@ -34,6 +40,7 @@ namespace Game.Dino
         private void ApplyJump()
         {
             rb.linearVelocity = new Vector3(0, jumpForce, 0);
+            animator.SetTrigger("Jump");
         }
 
         public override void StartGame()
@@ -43,6 +50,11 @@ namespace Game.Dino
             rb.useGravity = true;
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+        }
+
+        private void Animating()
+        {
+            animator.SetBool("IsGrounded", groundTrigger.IsTriggered);
         }
     }
 }
