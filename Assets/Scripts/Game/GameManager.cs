@@ -5,6 +5,7 @@ using Game.Cars;
 using Snowy.Utils;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Vehicle;
@@ -18,18 +19,22 @@ namespace Game
         [SerializeField] protected Player player;
         
         [Title("Settings")]
-        [SerializeField] protected float countdownDuration = 3f;
-        
-        [Title("UI")]
-        [SerializeField] protected Text countdownText;
-        [SerializeField] protected GameObject controls;
-        [SerializeField] protected CanvasGroup fadeCanvasGroup;
-        [SerializeField] protected CanvasGroup gameOverCanvasGroup;
-        [SerializeField] protected Text scoreText;
-        [SerializeField] protected TMP_Text coinsCollectedText;
+        [SerializeField] protected int gameID = 0;
+        [SerializeField] protected int countdownDuration = 3;
+
+        [Title("Events")]
+        public UnityEvent<int> OnCountdownEvent;
+        public UnityEvent<int> OnCoinCollected;
+        public UnityEvent OnObstacleHit;
+        public UnityEvent OnGameStartEvent;
+        public UnityEvent OnGameOverEvent;
+
         
         [Title("Debug")]
-        [SerializeField, Disable] protected int coinsCollected = 0;
+        [SerializeField, Disable] protected int score = 0;
+
+        public int GameID => gameID;
+        public int Score => score;
         
         protected void Start()
         {
@@ -38,9 +43,8 @@ namespace Game
         
         public void GameOver()
         {
-            controls.SetActive(false);
             player.EndGame();
-            StartCoroutine(GameOverRoutine());
+            OnGameOverEvent?.Invoke();
         }
         
         protected IEnumerator StartGame()
@@ -49,46 +53,31 @@ namespace Game
             
             for (int i = 0; i < countdownDuration; i++)
             {
-                countdownText.text = (countdownDuration - i).ToString(CultureInfo.InvariantCulture);
+                OnCountdownEvent?.Invoke(countdownDuration - i);
                 yield return new WaitForSeconds(1);
             }
-            
-            countdownText.text = "GO!";
-            
-            controls.SetActive(true);
+
+            OnCountdownEvent?.Invoke(0);
             
             OnGameStart();
         }
         
-        protected IEnumerator GameOverRoutine()
-        {
-            scoreText.text = coinsCollected.ToString();
-            
-            // smooth fade out
-            while (gameOverCanvasGroup.alpha < 1)
-            {
-                gameOverCanvasGroup.alpha += Time.deltaTime;
-                yield return null;
-            }
-            
-            // show game over screen
-            gameOverCanvasGroup.alpha = 1;
-        }
-        
         public virtual void CollectCoin(GameObject coin)
         {
-            coinsCollected++;
-            coinsCollectedText.text = coinsCollected.ToString();
+            score++;
+            OnCoinCollected?.Invoke(score);
         }
         
         public virtual void HitObstacle(GameObject obstacle)
         {
+            OnObstacleHit?.Invoke();
             GameOver();
         }
         
         protected virtual void OnGameStart()
         {
             player.StartGame();
+            OnGameStartEvent?.Invoke();
         }
 
         public void PlayAgain()

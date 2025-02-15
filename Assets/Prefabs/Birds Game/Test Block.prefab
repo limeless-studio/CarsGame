@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728458162744044675}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 15}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 18.5, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 4801884156797978076}
   - {fileID: 7844142014748465849}
   m_Father: {fileID: 8089044554006280960}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 180}
 --- !u!1 &1598750836247316587
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8089044554006280960}
-  - component: {fileID: 312390173257090242}
   - component: {fileID: 492965896840549976}
   - component: {fileID: 3976113709984324324}
   m_Layer: 0
@@ -527,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 7461850399865926654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -537,20 +536,6 @@ Transform:
   - {fileID: 6350907127772492314}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &312390173257090242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7461850399865926654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8958825235f4877bdf4b0ac1576db84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  direction: {x: 0, y: 0, z: -1}
 --- !u!114 &492965896840549976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,8 +553,9 @@ MonoBehaviour:
   - {fileID: 1317167498804483786}
   - {fileID: 6350907127772492314}
   tubePrefab: {fileID: 4409307564286235105, guid: 640d3415349353d459a2568d29e761ca, type: 3}
-  tubeDistance: 3
-  tubeHeightRange: {x: -2, y: 2}
+  pointArea: {fileID: 885424973144379878, guid: 3e6109cafe7377c4d84d8e33824dd1f7, type: 3}
+  tubeDistance: 5
+  tubeHeightRange: {x: -3, y: 3}
 --- !u!65 &3976113709984324324
 BoxCollider:
   m_ObjectHideFlags: 0

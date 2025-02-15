@@ -6,6 +6,7 @@ namespace Game.Bird
     {
         [Title("References")]
         [SerializeField] private Rigidbody rb;
+        [SerializeField] private Animator animator;
         
         [Title("Settings")]
         [SerializeField] private float flapForce = 1f;
@@ -21,6 +22,7 @@ namespace Game.Bird
         public void Flap()
         {
             if (rb.isKinematic) return;
+            animator.CrossFade("Flap", .2f);
             rb.linearVelocity = new Vector3(0, flapForce, 0);
         }
 

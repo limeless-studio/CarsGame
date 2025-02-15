@@ -4,7 +4,7 @@ namespace Game.Cars
 {
     public class CarGameManager : GameManager
     {
-        public static CarGameManager Instance => (CarGameManager) instance;
+        public new static CarGameManager Instance => (CarGameManager) instance;
         
         [Title("References")]
         [SerializeField] private GameObject coinPrefab;
